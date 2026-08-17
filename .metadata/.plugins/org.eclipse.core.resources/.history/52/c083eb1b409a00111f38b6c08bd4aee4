@@ -104,10 +104,9 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  if (HAL_UART_Receive(&huart2, &rx_char, 1, HAL_MAX_DELAY) == HAL_OK)
-	      {
-	        printf("Received: %c\r\n", rx_char);
-	      }
+    if (HAL_UART_Receive(&huart2, &rx_char, 1, HAL_MAX_DELAY) == HAL_OK)
+    {
+      printf("Received character: %c\r\n", rx_char);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -171,7 +170,11 @@ void Error_Handler(void)
   __disable_irq();
   while (1)
   {
-
+	  if (HAL_UART_Receive(&huart2, &rx_char, 1, HAL_MAX_DELAY) == HAL_OK)
+	      {
+	        printf("Received: %c\r\n", rx_char);
+	      }
+  }
   }
   /* USER CODE END Error_Handler_Debug */
 }
