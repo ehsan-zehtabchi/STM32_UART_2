@@ -118,31 +118,23 @@ int main(void)
 	        printf("Received: %c\r\n", rx_char);
 
           switch(rx_char)
-        {
-          case 'x':
-          case 'X':
-            led_mode = MODE_OFF;
-            break;
-        
-            case 'o':
-            case 'O':
-            led_mode = MODE_ON;
-            break;
-        
-          case 'b':
-          case 'B':
-            led_mode = MODE_BLINK;
-            break;
-        
-          case 'f':
-          case 'F':
-            led_mode = MODE_BLINK_FADE;
-            break;
-        
-    default:
-        printf("Unknown command: %c\r\n", rx_char);
-        break;
-}
+          {
+            case 'x' or 'X':
+              led_mode = MODE_OFF;
+              break;
+            case 'o' or 'O':
+              led_mode = MODE_ON;
+              break;
+            case 'b' or 'B':
+              led_mode = MODE_BLINK;
+              break;
+            case 'f' or 'F':
+              led_mode = MODE_BLINK_FADE;
+              break;
+            default:
+              printf("Unknown command: %c\r\n", rx_char);
+          break;
+          }
 	      }
     /* USER CODE END WHILE */
 
